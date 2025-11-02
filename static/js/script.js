@@ -150,6 +150,31 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
+    const nameRegex = /^[A-Za-z\s]+$/;
+    if (!nameRegex.test(nameInput.value.trim())) {
+      errorBox.innerText = "Name can contain letters only.";
+      errorBox.style.display = "block";
+      nameInput.focus();
+      return;
+    }
+
+    // ✅ Validate phone: only + and digits
+    const phoneRegex = /^\+?[0-9]+$/;
+    if (!phoneRegex.test(phoneInput.value.trim())) {
+      errorBox.innerText = "Phone number can contain digits and + only.";
+      errorBox.style.display = "block";
+      phoneInput.focus();
+      return;
+    }
+
+    // ✅ Optional: minimum phone length
+    if (phoneInput.value.trim().length < 8) {
+      errorBox.innerText = "Phone number is too short.";
+      errorBox.style.display = "block";
+      phoneInput.focus();
+      return;
+    }
+
     // ✅ Показываем модалку подтверждения вместо немедленной отправки
     showConfirmationModal(nameInput.value.trim(), phoneInput.value.trim());
   });
