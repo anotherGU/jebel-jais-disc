@@ -2,6 +2,8 @@ from flask import Flask, render_template, request, jsonify
 
 app = Flask(__name__)
 
+app.config['CSS_VERSION'] = '2'
+
 @app.route('/')
 def index():
     return render_template('index.html')
