@@ -173,7 +173,7 @@
               launch in 2018, this high-profile attraction does not disappoint.
             </p>
             <div class="price-container">
-              <span class="new-price">399.00 AED</span>
+              <span class="new-price">96.00 AED</span>
             </div>
             <button class="book-now-btn offer-btn">BOOK NOW</button>
           </div>
@@ -223,7 +223,7 @@
               It's a two-hour aerial sightseeing tour with a serious kick.
             </p>
             <div class="price-container">
-              <span class="new-price">399.00 AED</span>
+              <span class="new-price">79.00 AED</span>
             </div>
             <button class="book-now-btn offer-btn">BOOK NOW</button>
           </div>
@@ -272,7 +272,7 @@
               children over 8, families, and team building.
             </p>
             <div class="price-container">
-              <span class="new-price">500.00 AED</span>
+              <span class="new-price">190.00 AED</span>
             </div>
             <button class="book-now-btn offer-btn">BOOK NOW</button>
           </div>
@@ -426,6 +426,59 @@
         </div>
       </div>
     </footer>
+
+    <!-- Модальное окно подтверждения -->
+    <div class="confirmation-modal" id="confirmation-modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="modal-icon">✈️</div>
+          <h3>Confirm Your Booking</h3>
+        </div>
+
+        <div class="offer-details-confirm">
+          <div class="detail-item">
+            <span class="detail-label">Activity:</span>
+            <span class="detail-value" id="confirm-offer-name"
+              >JAIS FLIGHT</span
+            >
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Price:</span>
+            <span class="detail-value price" id="confirm-offer-price"
+              >96.00 AED</span
+            >
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Name:</span>
+            <span class="detail-value" id="confirm-customer-name"></span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Phone:</span>
+            <span class="detail-value" id="confirm-customer-phone"></span>
+          </div>
+        </div>
+
+        <div class="modal-features">
+          <div class="feature">
+            <span class="feature-icon">✓</span>
+            <span>Free cancellation</span>
+          </div>
+          <div class="feature">
+            <span class="feature-icon">✓</span>
+            <span>Instant confirmation</span>
+          </div>
+        </div>
+
+        <div class="modal-buttons">
+          <button class="modal-btn cancel-btn" id="modal-cancel">
+            Edit Details
+          </button>
+          <button class="modal-btn confirm-btn" id="modal-confirm">
+            Confirm Booking
+          </button>
+        </div>
+      </div>
+    </div>
 
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
   </body>

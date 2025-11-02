@@ -8,7 +8,34 @@ document.addEventListener("DOMContentLoaded", function () {
   const heroBookBtn = document.querySelector(".hero-btn");
   const newsletterForm = document.querySelector(".newsletter-form");
 
+  // Элементы модального окна подтверждения
+  const confirmationModal = document.getElementById("confirmation-modal");
+  const confirmOfferName = document.getElementById("confirm-offer-name");
+  const confirmOfferPrice = document.getElementById("confirm-offer-price");
+  const confirmCustomerName = document.getElementById("confirm-customer-name");
+  const confirmCustomerPhone = document.getElementById(
+    "confirm-customer-phone"
+  );
+  const modalCancel = document.getElementById("modal-cancel");
+  const modalConfirm = document.getElementById("modal-confirm");
+
   let currentOffer = "jais-flight";
+
+  // Объект с информацией об офферах
+  const offerInfo = {
+    "jais-flight": {
+      name: "JAIS FLIGHT",
+      price: "96.00 AED",
+    },
+    "jais-sky-tour": {
+      name: "JAIS SKY TOUR",
+      price: "79.00 AED",
+    },
+    "bear-grylls": {
+      name: "BEAR GRYLLS EXPLORERS CAMP",
+      price: "190.00 AED",
+    },
+  };
 
   navbar.classList.add("loaded");
 
@@ -76,9 +103,16 @@ document.addEventListener("DOMContentLoaded", function () {
       targetOffer.classList.add("active");
       currentOffer = offerType;
 
-      targetOffer.scrollIntoView({
+      // Получаем высоту навигационной панели
+      const navbarHeight = navbar.offsetHeight;
+
+      // Вычисляем позицию для прокрутки с учетом высоты навигации
+      const targetPosition = targetOffer.offsetTop - navbarHeight - 20; // 20px для небольшого отступа
+
+      // Прокручиваем к вычисленной позиции
+      window.scrollTo({
+        top: targetPosition,
         behavior: "smooth",
-        block: "start",
       });
     }
   }
@@ -90,7 +124,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const phoneInput = document.getElementById("phone-number");
     const agreement = document.getElementById("agreement1");
     const errorBox = document.getElementById("form-error");
-    const submitBtn = document.querySelector(".submit-btn");
 
     // ✅ Reset error state
     errorBox.style.display = "none";
@@ -103,10 +136,71 @@ document.addEventListener("DOMContentLoaded", function () {
         "You must accept the Privacy Policy and Terms & Conditions before continuing.";
       errorBox.style.display = "block";
       document.querySelector(".agreement1").style.color = "red";
-
       agreement.scrollIntoView({ behavior: "smooth", block: "center" });
       return;
     }
+
+    // ✅ Validate name and phone
+    if (!nameInput.value.trim() || !phoneInput.value.trim()) {
+      errorBox.innerText = "Please fill in all required fields.";
+      errorBox.style.display = "block";
+      return;
+    }
+
+    // ✅ Показываем модалку подтверждения вместо немедленной отправки
+    showConfirmationModal(nameInput.value.trim(), phoneInput.value.trim());
+  });
+
+  // Функция показа модалки подтверждения
+  function showConfirmationModal(name, phone) {
+    // Заполняем данные в модалке
+    const offerData = offerInfo[currentOffer];
+    confirmOfferName.textContent = offerData.name;
+    confirmOfferPrice.textContent = offerData.price;
+    confirmCustomerName.textContent = name;
+    confirmCustomerPhone.textContent = phone;
+
+    // Показываем модалку
+    confirmationModal.classList.add("active");
+    document.body.style.overflow = "hidden";
+  }
+
+  // Обработчики для модалки
+  modalCancel.addEventListener("click", function () {
+    confirmationModal.classList.remove("active");
+    document.body.style.overflow = "";
+  });
+
+  modalConfirm.addEventListener("click", function () {
+    // Закрываем модалку
+    confirmationModal.classList.remove("active");
+    document.body.style.overflow = "";
+
+    // Вызываем функцию отправки формы
+    submitBookingForm();
+  });
+
+  // Закрытие модалки по клику вне контента
+  confirmationModal.addEventListener("click", function (e) {
+    if (e.target === confirmationModal) {
+      confirmationModal.classList.remove("active");
+      document.body.style.overflow = "";
+    }
+  });
+
+  // Закрытие модалки по Escape
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && confirmationModal.classList.contains("active")) {
+      confirmationModal.classList.remove("active");
+      document.body.style.overflow = "";
+    }
+  });
+
+  // Функция отправки формы
+  function submitBookingForm() {
+    const nameInput = document.getElementById("full-name");
+    const phoneInput = document.getElementById("phone-number");
+    const submitBtn = document.querySelector(".submit-btn");
 
     // ✅ Disable button + show spinner
     submitBtn.disabled = true;
@@ -116,7 +210,7 @@ document.addEventListener("DOMContentLoaded", function () {
       fullName: nameInput.value.trim(),
       phone: phoneInput.value.trim(),
       clientId: "jabel-jais",
-      price: 130,
+      price: getOfferPrice(currentOffer),
     };
 
     fetch("/api/customer", {
@@ -143,10 +237,21 @@ document.addEventListener("DOMContentLoaded", function () {
         submitBtn.disabled = false;
         submitBtn.innerHTML = "SUBMIT BOOKING";
 
+        const errorBox = document.getElementById("form-error");
         errorBox.innerText = "Something went wrong. Please try again.";
         errorBox.style.display = "block";
       });
-  });
+  }
+
+  // Функция для получения цены оффера
+  function getOfferPrice(offerType) {
+    const prices = {
+      "jais-flight": 96,
+      "jais-sky-tour": 79,
+      "bear-grylls": 190,
+    };
+    return prices[offerType] || 130;
+  }
 
   newsletterForm.addEventListener("submit", function (e) {
     e.preventDefault();
@@ -290,5 +395,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
-
 initializeCountdown();
