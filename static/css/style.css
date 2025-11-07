@@ -1675,3 +1675,73 @@ body {
     font-size: 1.2rem;
   }
 }
+
+/* === Booking Steps Block (improved version) === */
+.booking-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-bottom: 32px;
+  padding: 22px 24px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  backdrop-filter: blur(8px);
+  animation: fadeInUp 0.6s ease both;
+}
+
+.step-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  opacity: 0.55;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.step-item:hover {
+  opacity: 0.9;
+  transform: translateX(6px);
+}
+
+.step-icon {
+  font-size: 1.6rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.step-text strong {
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.step-text p {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.85rem;
+  margin-top: 2px;
+  line-height: 1.3rem;
+}
+
+.active-step {
+  opacity: 1;
+  color: gold;
+}
+
+.active-step strong {
+  color: gold;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .booking-steps {
+    padding: 18px 16px;
+    gap: 14px;
+  }
+  .step-text p {
+    font-size: 0.8rem;
+  }
+  .step-icon {
+    font-size: 1.4rem;
+  }
+}
