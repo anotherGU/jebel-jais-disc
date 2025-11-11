@@ -27,12 +27,22 @@
           class="nav-logo"
           onclick="window.location.href='/ras-al-khaima/event-tickets/jebel-jais/buy-tickets'"
         />
-        <div class="nav-links">
-          <a href="/ras-al-khaima/event-tickets/jebel-jais/buy-tickets">Home</a>
-          <a href="/about" class="active">About</a>
-          <a href="/privacy-policy">Privacy</a>
-          <a href="/terms-conditions">Terms</a>
+
+        <!-- Бургер-меню -->
+        <div class="burger-menu" id="burger-menu">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
+
+        <!-- Основное меню для десктопа -->
+        <div class="nav-links" id="nav-links">
+          <a href="/ras-al-khaima/event-tickets/jebel-jais/buy-tickets">HOME</a>
+          <a href="/about">ABOUT US</a>
+          <a href="/privacy-policy">POLICY</a>
+          <a href="/terms-conditions">TERMS </a>
+        </div>
+
         <button
           class="book-now-btn nav-btn"
           onclick="window.location.href='/ras-al-khaima/event-tickets/jebel-jais/buy-tickets'"
@@ -41,6 +51,37 @@
         </button>
       </div>
     </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-fullscreen" id="mobile-menu">
+      <div class="mobile-menu-container">
+        <button class="mobile-menu-close" id="mobile-menu-close">
+          <span></span>
+          <span></span>
+        </button>
+        <div class="mobile-menu-header">
+          <div class="mobile-menu-title">JEBEL JAIS</div>
+          <div class="mobile-menu-subtitle">RAS AL KHAIMAH</div>
+        </div>
+        <nav class="mobile-nav-links">
+          <a
+            href="/ras-al-khaima/event-tickets/jebel-jais/buy-tickets"
+            class="mobile-nav-link"
+            >HOME</a
+          >
+          <a href="/about" class="mobile-nav-link">ABOUT US</a>
+          <a href="/privacy-policy" class="mobile-nav-link">PRIVACY</a>
+          <a href="/terms-conditions" class="mobile-nav-link">TERMS</a>
+        </nav>
+        <a
+          href="/ras-al-khaima/event-tickets/jebel-jais/buy-tickets"
+          class="mobile-book-now-btn"
+          style="display: inline-block; text-decoration: none"
+        >
+          BOOK NOW
+        </a>
+      </div>
+    </div>
 
     <!-- Hero -->
     <section class="about-hero">
