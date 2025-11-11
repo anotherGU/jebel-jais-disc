@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
   navbar.classList.add("loaded");
 
   window.addEventListener("scroll", function () {
-    if (window.scrollY > 100) navbar.classList.add("scrolled");
+    if (window.scrollY > 50) navbar.classList.add("scrolled");
     else navbar.classList.remove("scrolled");
 
     document.querySelectorAll(".offer-card, .section-title").forEach((el) => {

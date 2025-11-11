@@ -6,10 +6,10 @@
     <title>Blog & Articles – Jais Experiences</title>
 
     <!-- Main site styles -->
-    <link rel="stylesheet" href="/static/css/style.css" />
+    <link rel="stylesheet" href="/static/css/style.css?v=12" />
 
     <!-- Blog page styles -->
-    <link rel="stylesheet" href="/static/css/blog.css" />
+    <link rel="stylesheet" href="/static/css/blog.css?v=3" />
     <!-- Meta Pixel Code -->
     <!-- Meta Pixel Code -->
     <script>
@@ -85,6 +85,14 @@
           class="nav-logo"
           onclick="window.location.href='/ras-al-khaima/event-tickets/jebel-jais/buy-tickets'"
         />
+
+        <div class="weather-widget">
+          <img id="weather-icon" src="" alt="Weather" />
+          <div class="weather-info">
+            <span id="weather-temp">--°C</span>
+            <span id="weather-city">Ras Al Khaimah</span>
+          </div>
+        </div>
 
         <!-- Бургер-меню -->
         <div class="burger-menu" id="burger-menu">
@@ -261,10 +269,80 @@
         </div>
       </div>
     </section>
+    <footer class="footer">
+      <div class="footer-main">
+        <div class="newsletter">
+          <div class="social-links">
+            <a href="#">Facebook</a>
+          </div>
+        </div>
+
+        <div class="quick-links">
+          <h4>QUICK LINKS</h4>
+          <div class="links-column">
+            <a href="#">HOME</a>
+            <a href="/about">ABOUT US</a>
+            <a href="/privacy-policy">PRIVACY</a>
+            <a href="/terms-conditions">TERMS</a>
+          </div>
+          <h5>CONTACT DETAILS</h5>
+          <div class="links-column">
+            <p>PHONE: +971 04 815 7333</p>
+            <p>EMAIL: INFO@JEBELJAIS.COM</p>
+          </div>
+        </div>
+
+        <div class="brand-info">
+          <img
+            src="{{ url_for('static', filename='images/logo.webp') }}"
+            alt="Jebel Jais"
+            class="brand-logo"
+          />
+          <div class="brand-title">JEBEL JAIS</div>
+          <div class="brand-subtitle">RAS AL KHAIMAH</div>
+          <p>
+            Jebel Jais, the highest peak in the United Arab Emirates, invites
+            adventure seekers and nature enthusiasts to discover its stunning
+            landscapes and exciting activities. Its purpose is to enrich the
+            lifestyle and experiences of residents and visitors in Ras Al
+            Khaimah by fostering the development of leisure, entertainment, and
+            dining venues in the mountains.
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-bottom-content">
+          <div class="trust-badges">
+            <img
+              src="{{ url_for('static', filename='images/verif/visa_logo_verified.png') }}"
+              alt="Visa Verified"
+              class="trust-logo"
+            />
+            <img
+              src="{{ url_for('static', filename='images/verif/mastercard-securecode.png') }}"
+              alt="Mastercard SecureCode"
+              class="trust-logo"
+            />
+            <img
+              src="{{ url_for('static', filename='images/verif/pci-dss-1.png') }}"
+              alt="PCI DSS Compliant"
+              class="trust-logo"
+            />
+          </div>
+          <p>&copy; 2025 JEBEL JAIS | RAS AL KHAIMAH. All rights reserved.</p>
+          <div class="footer-links">
+            <a href="/privacy-policy">Privacy Policy</a>
+            <a href="/terms-conditions">Terms & Conditions</a>
+          </div>
+        </div>
+      </div>
+    </footer>
 
     <!-- Page JS -->
     <script src="/static/js/blog.js"></script>
-    <script src="{{ url_for('static', filename='js/about.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/about.js') }}?v=2"></script>
+    <script src="{{ url_for('static', filename='js/weather.js') }}"></script>
     <!-- <script>
       document.addEventListener("DOMContentLoaded", function () {
         const burgerMenu = document.getElementById("burger-menu");

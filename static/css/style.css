@@ -173,7 +173,8 @@ body {
   min-height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: end;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .hero-title {
@@ -197,10 +198,13 @@ body {
 /* Адаптив */
 @media (max-width: 768px) {
   .hero-title {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
   .hero-text {
     font-size: 0.95rem;
+  }
+  .hero-content {
+    padding-top: 7rem;
   }
 }
 
@@ -1616,5 +1620,86 @@ body {
   }
   .step-icon {
     font-size: 1.4rem;
+  }
+}
+
+/* === Weather Widget === */
+.weather-widget {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  font-weight: 500;
+  font-size: 0.9rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 6px 14px;
+  border-radius: 25px;
+  backdrop-filter: blur(6px);
+  transition: background 0.3s ease;
+  margin-left: 50%;
+}
+
+.weather-widget:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.weather-widget img {
+  width: 28px;
+  height: 28px;
+}
+
+.weather-info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+#weather-temp {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+#weather-city {
+  font-size: 0.75rem;
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .weather-widget {
+    margin-left: 0;
+  }
+}
+
+.trust-badges {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px; /* Расстояние между логотипами */
+  margin-bottom: 20px;
+  opacity: 0.9;
+  flex-wrap: wrap;
+}
+
+.trust-badges .trust-logo {
+  height: 36px; /* Стандартная высота для логотипов */
+  transition: all 0.3s ease;
+  filter: grayscale(40%); /* Легкий градиент для единообразия */
+}
+
+.trust-badges .trust-logo:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+  .trust-badges {
+    gap: 45px;
+    margin-bottom: 15px;
+  }
+
+  .trust-badges .trust-logo {
+    height: 28px;
   }
 }

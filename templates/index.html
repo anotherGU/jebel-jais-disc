@@ -52,7 +52,7 @@
     />
     <link
       rel="stylesheet"
-      href="{{ url_for('static', filename='css/style.css') }}?v=15"
+      href="{{ url_for('static', filename='css/style.css') }}?v=17"
     />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
@@ -133,6 +133,15 @@
           onclick="window.location.href='/ras-al-khaima/event-tickets/jebel-jais/buy-tickets'"
         />
 
+        <!-- Weather Widget -->
+        <div class="weather-widget">
+          <img id="weather-icon" src="" alt="Weather" />
+          <div class="weather-info">
+            <span id="weather-temp">--°C</span>
+            <span id="weather-city">Ras Al Khaimah</span>
+          </div>
+        </div>
+
         <!-- Бургер-меню -->
         <div class="burger-menu" id="burger-menu">
           <span></span>
@@ -191,6 +200,10 @@
       <div class="hero-overlay"></div>
 
       <div class="hero-content">
+        <h1 class="hero-title">
+          Your Adventure at<br />
+          Jebel Jais
+        </h1>
         <button class="book-now-btn hero-btn">BOOK NOW</button>
       </div>
     </section>
@@ -547,6 +560,23 @@
 
       <div class="footer-bottom">
         <div class="footer-bottom-content">
+          <div class="trust-badges">
+            <img
+              src="{{ url_for('static', filename='images/verif/visa_logo_verified.png') }}"
+              alt="Visa Verified"
+              class="trust-logo"
+            />
+            <img
+              src="{{ url_for('static', filename='images/verif/mastercard-securecode.png') }}"
+              alt="Mastercard SecureCode"
+              class="trust-logo"
+            />
+            <img
+              src="{{ url_for('static', filename='images/verif/pci-dss-1.png') }}"
+              alt="PCI DSS Compliant"
+              class="trust-logo"
+            />
+          </div>
           <p>&copy; 2025 JEBEL JAIS | RAS AL KHAIMAH. All rights reserved.</p>
           <div class="footer-links">
             <a href="/privacy-policy">Privacy Policy</a>
@@ -555,6 +585,7 @@
         </div>
       </div>
     </footer>
-    <script src="{{ url_for('static', filename='js/script.js') }}?v=15"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}?v=16"></script>
+    <script src="{{ url_for('static', filename='js/weather.js') }}"></script>
   </body>
 </html>

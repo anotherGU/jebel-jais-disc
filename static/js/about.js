@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 🔹 При скролле добавляем класс .scrolled
   window.addEventListener("scroll", () => {
-    if (window.scrollY > 100) navbar.classList.add("scrolled");
+    if (window.scrollY > 50) navbar.classList.add("scrolled");
     else navbar.classList.remove("scrolled");
   });
 

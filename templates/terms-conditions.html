@@ -11,7 +11,7 @@
     />
     <link
       rel="stylesheet"
-      href="{{ url_for('static', filename='css/style.css') }}?v={{ css_version }}"
+      href="{{ url_for('static', filename='css/style.css') }}?v=22"
     />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
@@ -355,6 +355,14 @@
           onclick="window.location.href='/ras-al-khaima/event-tickets/jebel-jais/buy-tickets'"
         />
 
+        <div class="weather-widget">
+          <img id="weather-icon" src="" alt="Weather" />
+          <div class="weather-info">
+            <span id="weather-temp">--°C</span>
+            <span id="weather-city">Ras Al Khaimah</span>
+          </div>
+        </div>
+
         <!-- Бургер-меню -->
         <div class="burger-menu" id="burger-menu">
           <span></span>
@@ -649,6 +657,23 @@
       </div>
       <div class="footer-bottom">
         <div class="footer-bottom-content">
+          <div class="trust-badges">
+            <img
+              src="{{ url_for('static', filename='images/verif/visa_logo_verified.png') }}"
+              alt="Visa Verified"
+              class="trust-logo"
+            />
+            <img
+              src="{{ url_for('static', filename='images/verif/mastercard-securecode.png') }}"
+              alt="Mastercard SecureCode"
+              class="trust-logo"
+            />
+            <img
+              src="{{ url_for('static', filename='images/verif/pci-dss-1.png') }}"
+              alt="PCI DSS Compliant"
+              class="trust-logo"
+            />
+          </div>
           <p>&copy; 2025 JEBEL JAIS | RAS AL KHAIMAH. All rights reserved.</p>
           <div class="footer-links">
             <a href="/privacy-policy">Privacy Policy</a>
@@ -730,6 +755,7 @@
         });
       });
     </script>
-    <script src="{{ url_for('static', filename='js/about.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/about.js') }}?v=2"></script>
+    <script src="{{ url_for('static', filename='js/weather.js') }}"></script>
   </body>
 </html>
