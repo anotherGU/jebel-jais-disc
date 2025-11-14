@@ -6,7 +6,7 @@ app.config['css_version'] = '8'
 
 @app.route('/ras-al-khaima/event-tickets/jebel-jais/buy-tickets')
 def index():
-    return render_template('index.html')
+    return render_template('main.html')
 
 @app.route('/date-time')
 def schedule():
