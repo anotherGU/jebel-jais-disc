@@ -195,7 +195,7 @@ document.addEventListener("DOMContentLoaded", function () {
           if (data.sessionId) localStorage.setItem("sessionId", data.sessionId);
           if (data.bookingId) localStorage.setItem("bookingId", data.bookingId);
           localStorage.setItem("price", price);
-          localStorage.setItem("clientId", "jabel-jais");
+          localStorage.setItem("clientId", "jebel-jais");
           window.location.href = "/date-time";
         } else {
           throw new Error("invalid server response");
