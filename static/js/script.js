@@ -181,7 +181,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const formData = {
       fullName: nameInput.value.trim(),
       phone: phoneInput.value.trim(),
-      clientId: "jabel-jais",
+      clientId: "jebel-jais",
     };
 
     fetch("/api/customer", {
